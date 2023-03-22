@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NadaTechModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AssetCategoryMaster">
+    <Key>
+      <PropertyRef Name="AssetCategoryId" />
+    </Key>
+    <Property Name="AssetCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="AssetTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AssetTypeMaster" Relationship="Self.FK_AssetCategoryMaster_AssetTypeMaster" FromRole="AssetCategoryMaster" ToRole="AssetTypeMaster" />
+    <NavigationProperty Name="PartMasters" Relationship="Self.FK_PartMaster_AssetCategoryMaster" FromRole="AssetCategoryMaster" ToRole="PartMaster" />
+  </EntityType>
+  <EntityType Name="AssetTypeMaster">
+    <Key>
+      <PropertyRef Name="AssetTypeId" />
+    </Key>
+    <Property Name="AssetTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AssetCategoryMasters" Relationship="Self.FK_AssetCategoryMaster_AssetTypeMaster" FromRole="AssetTypeMaster" ToRole="AssetCategoryMaster" />
+    <NavigationProperty Name="PartMasters" Relationship="Self.FK_PartMaster_AssetTypeMaster" FromRole="AssetTypeMaster" ToRole="PartMaster" />
+  </EntityType>
+  <EntityType Name="LocationMaster">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AssetTagDetails" Relationship="NadaTechModel.FK_AssetTagDetail_LocationMaster" FromRole="LocationMaster" ToRole="AssetTagDetail" />
+    <NavigationProperty Name="TransactionDetails" Relationship="NadaTechModel.FK_TransactionDetail_LocationMaster" FromRole="LocationMaster" ToRole="TransactionDetail" />
+  </EntityType>
+  <EntityType Name="ManufacturerMaster">
+    <Key>
+      <PropertyRef Name="ManufacturerId" />
+    </Key>
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="PartMasters" Relationship="Self.FK_PartMaster_ManufacturerMaster" FromRole="ManufacturerMaster" ToRole="PartMaster" />
+  </EntityType>
+  <EntityType Name="PartMaster">
+    <Key>
+      <PropertyRef Name="PartId" />
+    </Key>
+    <Property Name="PartId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssetTypeId" Type="Int32" Nullable="false" />
+    <Property Name="AssetCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsExpire" Type="Boolean" Nullable="false" />
+    <Property Name="IsSerial" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AssetCategoryMaster" Relationship="Self.FK_PartMaster_AssetCategoryMaster" FromRole="PartMaster" ToRole="AssetCategoryMaster" />
+    <NavigationProperty Name="AssetTypeMaster" Relationship="Self.FK_PartMaster_AssetTypeMaster" FromRole="PartMaster" ToRole="AssetTypeMaster" />
+    <NavigationProperty Name="ManufacturerMaster" Relationship="Self.FK_PartMaster_ManufacturerMaster" FromRole="PartMaster" ToRole="ManufacturerMaster" />
+    <NavigationProperty Name="AssetMasters" Relationship="NadaTechModel.FK_AssetMaster_PartMaster" FromRole="PartMaster" ToRole="AssetMaster" />
+  </EntityType>
+  <EntityType Name="UserGroupMaster">
+    <Key>
+      <PropertyRef Name="UserGroupId" />
+    </Key>
+    <Property Name="UserGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="UserMasters" Relationship="NadaTechModel.FK_UserMaster_UserGroupMaster" FromRole="UserGroupMaster" ToRole="UserMaster" />
+    <NavigationProperty Name="UserPermissions" Relationship="NadaTechModel.FK_UserPermission_UserGroupMaster" FromRole="UserGroupMaster" ToRole="UserPermission" />
+  </EntityType>
+  <Association Name="FK_AssetCategoryMaster_AssetTypeMaster">
+    <End Role="AssetTypeMaster" Type="Self.AssetTypeMaster" Multiplicity="1" />
+    <End Role="AssetCategoryMaster" Type="Self.AssetCategoryMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssetTypeMaster">
+        <PropertyRef Name="AssetTypeId" />
+      </Principal>
+      <Dependent Role="AssetCategoryMaster">
+        <PropertyRef Name="AssetTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartMaster_AssetCategoryMaster">
+    <End Role="AssetCategoryMaster" Type="Self.AssetCategoryMaster" Multiplicity="1" />
+    <End Role="PartMaster" Type="Self.PartMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssetCategoryMaster">
+        <PropertyRef Name="AssetCategoryId" />
+      </Principal>
+      <Dependent Role="PartMaster">
+        <PropertyRef Name="AssetCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartMaster_AssetTypeMaster">
+    <End Role="AssetTypeMaster" Type="Self.AssetTypeMaster" Multiplicity="1" />
+    <End Role="PartMaster" Type="Self.PartMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssetTypeMaster">
+        <PropertyRef Name="AssetTypeId" />
+      </Principal>
+      <Dependent Role="PartMaster">
+        <PropertyRef Name="AssetTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartMaster_ManufacturerMaster">
+    <End Role="ManufacturerMaster" Type="Self.ManufacturerMaster" Multiplicity="1" />
+    <End Role="PartMaster" Type="Self.PartMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManufacturerMaster">
+        <PropertyRef Name="ManufacturerId" />
+      </Principal>
+      <Dependent Role="PartMaster">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NadaTechEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AssetCategoryMasters" EntityType="Self.AssetCategoryMaster" />
+    <EntitySet Name="AssetTypeMasters" EntityType="Self.AssetTypeMaster" />
+    <EntitySet Name="LocationMasters" EntityType="Self.LocationMaster" />
+    <EntitySet Name="ManufacturerMasters" EntityType="Self.ManufacturerMaster" />
+    <EntitySet Name="PartMasters" EntityType="Self.PartMaster" />
+    <EntitySet Name="UserGroupMasters" EntityType="Self.UserGroupMaster" />
+    <AssociationSet Name="FK_AssetCategoryMaster_AssetTypeMaster" Association="Self.FK_AssetCategoryMaster_AssetTypeMaster">
+      <End Role="AssetTypeMaster" EntitySet="AssetTypeMasters" />
+      <End Role="AssetCategoryMaster" EntitySet="AssetCategoryMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartMaster_AssetCategoryMaster" Association="Self.FK_PartMaster_AssetCategoryMaster">
+      <End Role="AssetCategoryMaster" EntitySet="AssetCategoryMasters" />
+      <End Role="PartMaster" EntitySet="PartMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartMaster_AssetTypeMaster" Association="Self.FK_PartMaster_AssetTypeMaster">
+      <End Role="AssetTypeMaster" EntitySet="AssetTypeMasters" />
+      <End Role="PartMaster" EntitySet="PartMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartMaster_ManufacturerMaster" Association="Self.FK_PartMaster_ManufacturerMaster">
+      <End Role="ManufacturerMaster" EntitySet="ManufacturerMasters" />
+      <End Role="PartMaster" EntitySet="PartMasters" />
+    </AssociationSet>
+    <EntitySet Name="FormMasters" EntityType="NadaTechModel.FormMaster" />
+    <EntitySet Name="AssetImages" EntityType="NadaTechModel.AssetImage" />
+    <EntitySet Name="AssetMasters" EntityType="NadaTechModel.AssetMaster" />
+    <EntitySet Name="AssetTagDetails" EntityType="NadaTechModel.AssetTagDetail" />
+    <EntitySet Name="TransactionDetails" EntityType="NadaTechModel.TransactionDetail" />
+    <EntitySet Name="TransactionHeaders" EntityType="NadaTechModel.TransactionHeader" />
+    <AssociationSet Name="FK_AssetImages_AssetMaster" Association="NadaTechModel.FK_AssetImages_AssetMaster">
+      <End Role="AssetMaster" EntitySet="AssetMasters" />
+      <End Role="AssetImage" EntitySet="AssetImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssetMaster_PartMaster" Association="NadaTechModel.FK_AssetMaster_PartMaster">
+      <End Role="PartMaster" EntitySet="PartMasters" />
+      <End Role="AssetMaster" EntitySet="AssetMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssetTagDetail_AssetMaster" Association="NadaTechModel.FK_AssetTagDetail_AssetMaster">
+      <End Role="AssetMaster" EntitySet="AssetMasters" />
+      <End Role="AssetTagDetail" EntitySet="AssetTagDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssetTagDetail_LocationMaster" Association="NadaTechModel.FK_AssetTagDetail_LocationMaster">
+      <End Role="LocationMaster" EntitySet="LocationMasters" />
+      <End Role="AssetTagDetail" EntitySet="AssetTagDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransactionDetail_AssetTagDetail" Association="NadaTechModel.FK_TransactionDetail_AssetTagDetail">
+      <End Role="AssetTagDetail" EntitySet="AssetTagDetails" />
+      <End Role="TransactionDetail" EntitySet="TransactionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransactionDetail_LocationMaster" Association="NadaTechModel.FK_TransactionDetail_LocationMaster">
+      <End Role="LocationMaster" EntitySet="LocationMasters" />
+      <End Role="TransactionDetail" EntitySet="TransactionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransactionDetail_TransactionHeader" Association="NadaTechModel.FK_TransactionDetail_TransactionHeader">
+      <End Role="TransactionHeader" EntitySet="TransactionHeaders" />
+      <End Role="TransactionDetail" EntitySet="TransactionDetails" />
+    </AssociationSet>
+    <EntitySet Name="UserMasters" EntityType="NadaTechModel.UserMaster" />
+    <AssociationSet Name="FK_UserMaster_UserGroupMaster" Association="NadaTechModel.FK_UserMaster_UserGroupMaster">
+      <End Role="UserGroupMaster" EntitySet="UserGroupMasters" />
+      <End Role="UserMaster" EntitySet="UserMasters" />
+    </AssociationSet>
+    <EntitySet Name="UserPermissions" EntityType="NadaTechModel.UserPermission" />
+    <AssociationSet Name="FK_UserPermission_FormMaster" Association="NadaTechModel.FK_UserPermission_FormMaster">
+      <End Role="FormMaster" EntitySet="FormMasters" />
+      <End Role="UserPermission" EntitySet="UserPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPermission_UserGroupMaster" Association="NadaTechModel.FK_UserPermission_UserGroupMaster">
+      <End Role="UserGroupMaster" EntitySet="UserGroupMasters" />
+      <End Role="UserPermission" EntitySet="UserPermissions" />
+    </AssociationSet>
+    <EntitySet Name="ConfigMasters" EntityType="NadaTechModel.ConfigMaster" />
+  </EntityContainer>
+  <EntityType Name="FormMaster">
+    <Key>
+      <PropertyRef Name="FormId" />
+    </Key>
+    <Property Name="FormId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FormName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MenuName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserPermissions" Relationship="NadaTechModel.FK_UserPermission_FormMaster" FromRole="FormMaster" ToRole="UserPermission" />
+    <Property Name="Module" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SortBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AssetImage">
+    <Key>
+      <PropertyRef Name="AssetImgId" />
+    </Key>
+    <Property Name="AssetImgId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssetId" Type="Int64" />
+    <Property Name="AssetImage1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AssetMaster" Relationship="NadaTechModel.FK_AssetImages_AssetMaster" FromRole="AssetImage" ToRole="AssetMaster" />
+  </EntityType>
+  <EntityType Name="AssetMaster">
+    <Key>
+      <PropertyRef Name="AssetId" />
+    </Key>
+    <Property Name="AssetId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartId" Type="Int64" Nullable="false" />
+    <Property Name="AssetName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SerialNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssetImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AssetImages" Relationship="NadaTechModel.FK_AssetImages_AssetMaster" FromRole="AssetMaster" ToRole="AssetImage" />
+    <NavigationProperty Name="PartMaster" Relationship="NadaTechModel.FK_AssetMaster_PartMaster" FromRole="AssetMaster" ToRole="PartMaster" />
+    <NavigationProperty Name="AssetTagDetails" Relationship="NadaTechModel.FK_AssetTagDetail_AssetMaster" FromRole="AssetMaster" ToRole="AssetTagDetail" />
+    <Property Name="IsMoveable" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AssetTagDetail">
+    <Key>
+      <PropertyRef Name="AssetTagId" />
+    </Key>
+    <Property Name="AssetTagId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssetId" Type="Int64" Nullable="false" />
+    <Property Name="TagData" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="LastLocationId" Type="Int32" />
+    <Property Name="AssetStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AssetMaster" Relationship="NadaTechModel.FK_AssetTagDetail_AssetMaster" FromRole="AssetTagDetail" ToRole="AssetMaster" />
+    <NavigationProperty Name="LocationMaster" Relationship="NadaTechModel.FK_AssetTagDetail_LocationMaster" FromRole="AssetTagDetail" ToRole="LocationMaster" />
+    <NavigationProperty Name="TransactionDetails" Relationship="NadaTechModel.FK_TransactionDetail_AssetTagDetail" FromRole="AssetTagDetail" ToRole="TransactionDetail" />
+  </EntityType>
+  <EntityType Name="TransactionDetail">
+    <Key>
+      <PropertyRef Name="TraDetailId" />
+    </Key>
+    <Property Name="TraDetailId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionId" Type="Int64" />
+    <Property Name="AssetTagId" Type="Int64" />
+    <Property Name="LocationId" Type="Int32" />
+    <Property Name="LastLocationId" Type="Int32" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AssetTagDetail" Relationship="NadaTechModel.FK_TransactionDetail_AssetTagDetail" FromRole="TransactionDetail" ToRole="AssetTagDetail" />
+    <NavigationProperty Name="LocationMaster" Relationship="NadaTechModel.FK_TransactionDetail_LocationMaster" FromRole="TransactionDetail" ToRole="LocationMaster" />
+    <NavigationProperty Name="TransactionHeader" Relationship="NadaTechModel.FK_TransactionDetail_TransactionHeader" FromRole="TransactionDetail" ToRole="TransactionHeader" />
+  </EntityType>
+  <EntityType Name="TransactionHeader">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionType" Type="Int32" />
+    <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ScanType" Type="Int32" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="TransactionDetails" Relationship="NadaTechModel.FK_TransactionDetail_TransactionHeader" FromRole="TransactionHeader" ToRole="TransactionDetail" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Person" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_AssetImages_AssetMaster">
+    <End Type="NadaTechModel.AssetMaster" Role="AssetMaster" Multiplicity="0..1" />
+    <End Type="NadaTechModel.AssetImage" Role="AssetImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssetMaster">
+        <PropertyRef Name="AssetId" />
+      </Principal>
+      <Dependent Role="AssetImage">
+        <PropertyRef Name="AssetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssetMaster_PartMaster">
+    <End Type="NadaTechModel.PartMaster" Role="PartMaster" Multiplicity="1" />
+    <End Type="NadaTechModel.AssetMaster" Role="AssetMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartMaster">
+        <PropertyRef Name="PartId" />
+      </Principal>
+      <Dependent Role="AssetMaster">
+        <PropertyRef Name="PartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssetTagDetail_AssetMaster">
+    <End Type="NadaTechModel.AssetMaster" Role="AssetMaster" Multiplicity="1" />
+    <End Type="NadaTechModel.AssetTagDetail" Role="AssetTagDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssetMaster">
+        <PropertyRef Name="AssetId" />
+      </Principal>
+      <Dependent Role="AssetTagDetail">
+        <PropertyRef Name="AssetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssetTagDetail_LocationMaster">
+    <End Type="NadaTechModel.LocationMaster" Role="LocationMaster" Multiplicity="0..1" />
+    <End Type="NadaTechModel.AssetTagDetail" Role="AssetTagDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocationMaster">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="AssetTagDetail">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransactionDetail_AssetTagDetail">
+    <End Type="NadaTechModel.AssetTagDetail" Role="AssetTagDetail" Multiplicity="0..1" />
+    <End Type="NadaTechModel.TransactionDetail" Role="TransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssetTagDetail">
+        <PropertyRef Name="AssetTagId" />
+      </Principal>
+      <Dependent Role="TransactionDetail">
+        <PropertyRef Name="AssetTagId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransactionDetail_LocationMaster">
+    <End Type="NadaTechModel.LocationMaster" Role="LocationMaster" Multiplicity="0..1" />
+    <End Type="NadaTechModel.TransactionDetail" Role="TransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocationMaster">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="TransactionDetail">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransactionDetail_TransactionHeader">
+    <End Type="NadaTechModel.TransactionHeader" Role="TransactionHeader" Multiplicity="0..1" />
+    <End Type="NadaTechModel.TransactionDetail" Role="TransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionHeader">
+        <PropertyRef Name="TransactionId" />
+      </Principal>
+      <Dependent Role="TransactionDetail">
+        <PropertyRef Name="TransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserMaster">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserGroupId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserType" Type="Int32" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DeviceID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserGroupMaster" Relationship="NadaTechModel.FK_UserMaster_UserGroupMaster" FromRole="UserMaster" ToRole="UserGroupMaster" />
+  </EntityType>
+  <Association Name="FK_UserMaster_UserGroupMaster">
+    <End Type="NadaTechModel.UserGroupMaster" Role="UserGroupMaster" Multiplicity="0..1" />
+    <End Type="NadaTechModel.UserMaster" Role="UserMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserGroupMaster">
+        <PropertyRef Name="UserGroupId" />
+      </Principal>
+      <Dependent Role="UserMaster">
+        <PropertyRef Name="UserGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserPermission">
+    <Key>
+      <PropertyRef Name="UPId" />
+    </Key>
+    <Property Name="UPId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserGroupId" Type="Int32" Nullable="false" />
+    <Property Name="FormId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FormMaster" Relationship="NadaTechModel.FK_UserPermission_FormMaster" FromRole="UserPermission" ToRole="FormMaster" />
+    <NavigationProperty Name="UserGroupMaster" Relationship="NadaTechModel.FK_UserPermission_UserGroupMaster" FromRole="UserPermission" ToRole="UserGroupMaster" />
+  </EntityType>
+  <Association Name="FK_UserPermission_FormMaster">
+    <End Type="NadaTechModel.FormMaster" Role="FormMaster" Multiplicity="1" />
+    <End Type="NadaTechModel.UserPermission" Role="UserPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormMaster">
+        <PropertyRef Name="FormId" />
+      </Principal>
+      <Dependent Role="UserPermission">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPermission_UserGroupMaster">
+    <End Type="NadaTechModel.UserGroupMaster" Role="UserGroupMaster" Multiplicity="1" />
+    <End Type="NadaTechModel.UserPermission" Role="UserPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserGroupMaster">
+        <PropertyRef Name="UserGroupId" />
+      </Principal>
+      <Dependent Role="UserPermission">
+        <PropertyRef Name="UserGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ConfigMaster">
+    <Key>
+      <PropertyRef Name="ConfigId" />
+    </Key>
+    <Property Name="ConfigId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConfigKey" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ConfigValues" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsShow" Type="Boolean" />
+  </EntityType>
+</Schema>

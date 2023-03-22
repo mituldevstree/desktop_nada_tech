@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="05cf1f31f17e4fd397187f9ec1e11cfa" Name="Diagram1">
+        <EntityTypeShape EntityType="NadaTechModel.AUTToken" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NadaTechModel.DeviceDetail" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NadaTechModel.UserMaster" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="NadaTechModel.AssetCategoryMaster" Width="1.5" PointX="7.625" PointY="7.625" />
+        <EntityTypeShape EntityType="NadaTechModel.AssetMaster" Width="1.5" PointX="12.125" PointY="7.375" />
+        <EntityTypeShape EntityType="NadaTechModel.AssetTagDetail" Width="1.5" PointX="14.375" PointY="7.5" />
+        <EntityTypeShape EntityType="NadaTechModel.AssetTypeMaster" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="NadaTechModel.FormMaster" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="NadaTechModel.LocationMaster" Width="1.5" PointX="12.125" PointY="3.75" />
+        <EntityTypeShape EntityType="NadaTechModel.ManufacturerMaster" Width="1.5" PointX="7.625" PointY="11.75" />
+        <EntityTypeShape EntityType="NadaTechModel.PartMaster" Width="1.5" PointX="9.875" PointY="7" />
+        <AssociationConnector Association="NadaTechModel.FK_AssetCategoryMaster_AssetTypeMaster" />
+        <AssociationConnector Association="NadaTechModel.FK_PartMaster_AssetCategoryMaster" />
+        <AssociationConnector Association="NadaTechModel.FK_AssetMaster_PartMaster" />
+        <AssociationConnector Association="NadaTechModel.FK_AssetTagDetail_AssetMaster" />
+        <AssociationConnector Association="NadaTechModel.FK_AssetTagDetail_LocationMaster" />
+        <AssociationConnector Association="NadaTechModel.FK_PartMaster_AssetTypeMaster" />
+        <AssociationConnector Association="NadaTechModel.FK_PartMaster_ManufacturerMaster" />
+        <EntityTypeShape EntityType="NadaTechModel.AssetImage" Width="1.5" PointX="14.375" PointY="12" />
+        <AssociationConnector Association="NadaTechModel.FK_AssetImages_AssetMaster" />
+        <EntityTypeShape EntityType="NadaTechModel.TransactionDetail" Width="1.5" PointX="16.625" PointY="5.75" />
+        <EntityTypeShape EntityType="NadaTechModel.TransactionHeader" Width="1.5" PointX="14.375" PointY="2.875" />
+        <AssociationConnector Association="NadaTechModel.FK_TransactionDetail_AssetTagDetail" />
+        <AssociationConnector Association="NadaTechModel.FK_TransactionDetail_LocationMaster" />
+        <AssociationConnector Association="NadaTechModel.FK_TransactionDetail_TransactionHeader" />
+        <EntityTypeShape EntityType="NadaTechModel.UserGroupMaster" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="NadaTechModel.UserPermission" Width="1.5" PointX="3" PointY="7" />
+        <AssociationConnector Association="NadaTechModel.FK_UserPermission_FormMaster" />
+        <AssociationConnector Association="NadaTechModel.FK_UserMaster_UserGroupMaster" />
+        <AssociationConnector Association="NadaTechModel.FK_UserPermission_UserGroupMaster" />
+        <EntityTypeShape EntityType="NadaTechModel.ConfigMaster" Width="1.5" PointX="5.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

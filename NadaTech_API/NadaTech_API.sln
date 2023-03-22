@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NadaTech_API", "NadaTech_API\NadaTech_API.csproj", "{193547AE-674E-41F5-904A-86C73692F61E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{193547AE-674E-41F5-904A-86C73692F61E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193547AE-674E-41F5-904A-86C73692F61E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193547AE-674E-41F5-904A-86C73692F61E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193547AE-674E-41F5-904A-86C73692F61E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5958E6E-8303-4A57-88E8-541006EDD334}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2FF1B8CB-A7A2-4F61-B86B-0072D13E7885}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NadaTech</RootNamespace>
+    <AssemblyName>NadaTech</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceId, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f755c371b5c59c52, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeviceId.6.2.0\lib\net40\DeviceId.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceId.Windows, Version=6.2.0.0, Culture=neutral, PublicKeyToken=f755c371b5c59c52, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeviceId.Windows.6.2.0\lib\net40\DeviceId.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp">
+      <HintPath>..\..\..\Demo\RJControls-main\CustomControls\bin\Debug\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.2.2.3.1\lib\net461\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\Demo\RFID\RFID\bin\Debug\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RFID_Reader_Cmds">
+      <HintPath>..\..\..\..\Users\Aagite\Downloads\SYSIoT_UHF_Reader_SDK\SDK\DEMO\NET\RFID_Reader_Cmds.dll</HintPath>
+    </Reference>
+    <Reference Include="RFID_Reader_Com">
+      <HintPath>..\..\..\..\Users\Aagite\Downloads\SYSIoT_UHF_Reader_SDK\SDK\DEMO\NET\RFID_Reader_Com.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UHFControl">
+      <HintPath>..\..\..\..\Users\Aagite\Downloads\UR4 Windows UHF APP-V1.3.1\UHFAPP1.3.1_soundcode\bin\Debug\UHFControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Win32GC">
+      <HintPath>..\..\..\..\Users\Aagite\Downloads\Win32GC.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="xSocketDLL">
+      <HintPath>..\..\..\..\Users\Aagite\Downloads\SYSIoT_UHF_Reader_SDK\SDK\DEMO\NET\xSocketDLL.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CIRFID\Common.cs" />
+    <Compile Include="CIRFID\ReaderAPI.cs" />
+    <Compile Include="Custome\FormMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custome\FormMessageBox.designer.cs">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custome\RJMessageBox.cs" />
+    <Compile Include="Data\AssetCategoryMaster.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AssetImage.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AssetMaster.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AssetTagDetail.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\AssetTypeMaster.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ConfigMaster.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Extended\FormMaster.cs" />
+    <Compile Include="Data\Extended\UserMaster.cs" />
+    <Compile Include="Data\Extended\PartMaster.cs" />
+    <Compile Include="Data\Extended\AssetCategoryMaster.cs" />
+    <Compile Include="Data\FormMaster.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\LocationMaster.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ManufacturerMaster.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NadaTech.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NadaTech.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NadaTech.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NadaTech.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NadaTech.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PartMaster.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TransactionDetail.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\TransactionHeader.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UserGroupMaster.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UserMaster.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UserPermission.cs">
+      <DependentUpon>NadaTech.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Halper\Comman.cs" />
+    <Compile Include="Halper\DeviceFinderApi.cs" />
+    <Compile Include="Halper\DeviceInfo.cs" />
+    <Compile Include="Halper\sqlhelper.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RJControls\MenuColorTable.cs" />
+    <Compile Include="RJControls\MenuRenderer.cs" />
+    <Compile Include="RJControls\RJButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RJControls\RJCircularPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RJControls\RJComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RJControls\RJDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RJControls\RJDropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RJControls\RJProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RJControls\RJRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RJControls\RJTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RJControls\RJTextBox.Designer.cs">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RJControls\RJToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="usb\hid\Hid.cs" />
+    <Compile Include="usb\hid\HIDInterface.cs" />
+    <Compile Include="usb\hid\HidUtils.cs" />
+    <Compile Include="usb\interfaces\IAutoReceive.cs" />
+    <Compile Include="usb\interfaces\IUHF.cs" />
+    <Compile Include="usb\interfaces\IUHFProtocolParse.cs" />
+    <Compile Include="usb\UHFAPI.cs" />
+    <Compile Include="usb\UHFAPIOfUsb.cs" />
+    <Compile Include="usb\UHFProtocolParse.cs" />
+    <Compile Include="usb\UHFTAGInfo.cs" />
+    <Compile Include="usb\UsbNative.cs" />
+    <Compile Include="usb\UsbUHFProtocolParse.cs" />
+    <Compile Include="usb\utils\Common.cs" />
+    <Compile Include="usb\utils\DataConvert.cs" />
+    <Compile Include="usb\utils\Debug.cs" />
+    <Compile Include="usb\utils\FileManage.cs" />
+    <Compile Include="usb\utils\IPConfig.cs" />
+    <Compile Include="usb\utils\MessageBoxEx.cs" />
+    <Compile Include="usb\utils\StringUtils.cs" />
+    <Compile Include="usb\utils\Utils.cs" />
+    <Compile Include="View\AssetSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AssetSelect.Designer.cs">
+      <DependentUpon>AssetSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AssetCategoryAddView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AssetCategoryAddView.Designer.cs">
+      <DependentUpon>AssetCategoryAddView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CheckInOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\CheckInOut.Designer.cs">
+      <DependentUpon>CheckInOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CheckInOutMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\CheckInOutMain.Designer.cs">
+      <DependentUpon>CheckInOutMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CheckOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\CheckOut.Designer.cs">
+      <DependentUpon>CheckOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Configuration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Configuration.Designer.cs">
+      <DependentUpon>Configuration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportMainUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ReportMainUC.Designer.cs">
+      <DependentUpon>ReportMainUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NonMoveable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NonMoveable.Designer.cs">
+      <DependentUpon>NonMoveable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SearchFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SearchFrom.Designer.cs">
+      <DependentUpon>SearchFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManufacturerAddView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManufacturerAddView.Designer.cs">
+      <DependentUpon>ManufacturerAddView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CheckIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\CheckIn.Designer.cs">
+      <DependentUpon>CheckIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SelectReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SelectReader.Designer.cs">
+      <DependentUpon>SelectReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserGroupViewUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserGroupViewUC.Designer.cs">
+      <DependentUpon>UserGroupViewUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserViewUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserViewUC.Designer.cs">
+      <DependentUpon>UserViewUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManageAsset.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ManageAsset.Designer.cs">
+      <DependentUpon>ManageAsset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LocationViewUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LocationViewUC.Designer.cs">
+      <DependentUpon>LocationViewUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreateAssetUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\CreateAssetUC.Designer.cs">
+      <DependentUpon>CreateAssetUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddEditPartUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\AddEditPartUC.Designer.cs">
+      <DependentUpon>AddEditPartUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AssetType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AssetType.Designer.cs">
+      <DependentUpon>AssetType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MasterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MasterForm.designer.cs">
+      <DependentUpon>MasterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserAddEdit.Designer.cs">
+      <DependentUpon>UserAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PartViewUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PartViewUC.Designer.cs">
+      <DependentUpon>PartViewUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserGroupAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserGroupAddEdit.Designer.cs">
+      <DependentUpon>UserGroupAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LocationAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LocationAddEdit.Designer.cs">
+      <DependentUpon>LocationAddEdit.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Custome\FormMessageBox.resx">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RJControls\RJTextBox.resx">
+      <DependentUpon>RJTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AssetSelect.resx">
+      <DependentUpon>AssetSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AssetCategoryAddView.resx">
+      <DependentUpon>AssetCategoryAddView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CheckInOut.resx">
+      <DependentUpon>CheckInOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CheckInOutMain.resx">
+      <DependentUpon>CheckInOutMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CheckOut.resx">
+      <DependentUpon>CheckOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Configuration.resx">
+      <DependentUpon>Configuration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportMainUC.resx">
+      <DependentUpon>ReportMainUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NonMoveable.resx">
+      <DependentUpon>NonMoveable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SearchFrom.resx">
+      <DependentUpon>SearchFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManufacturerAddView.resx">
+      <DependentUpon>ManufacturerAddView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CheckIn.resx">
+      <DependentUpon>CheckIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SelectReader.resx">
+      <DependentUpon>SelectReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserGroupViewUC.resx">
+      <DependentUpon>UserGroupViewUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserViewUC.resx">
+      <DependentUpon>UserViewUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManageAsset.resx">
+      <DependentUpon>ManageAsset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LocationViewUC.resx">
+      <DependentUpon>LocationViewUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CreateAssetUC.resx">
+      <DependentUpon>CreateAssetUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AddEditPartUC.resx">
+      <DependentUpon>AddEditPartUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AssetType.resx">
+      <DependentUpon>AssetType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MasterForm.resx">
+      <DependentUpon>MasterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserAddEdit.resx">
+      <DependentUpon>UserAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PartViewUC.resx">
+      <DependentUpon>PartViewUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserGroupAddEdit.resx">
+      <DependentUpon>UserGroupAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LocationAddEdit.resx">
+      <DependentUpon>LocationAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Data\NadaTech.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NadaTech.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CIRFID\x64\device_finder_api.lib" />
+    <None Include="CIRFID\x64\uhf_reader_api.lib" />
+    <None Include="CIRFID\x64\uhf_reader_device_api.lib" />
+    <None Include="CIRFID\x86\device_finder_api.lib" />
+    <None Include="CIRFID\x86\uhf_reader_api.lib" />
+    <None Include="CIRFID\x86\uhf_reader_device_api.lib" />
+    <None Include="Data\NadaTech.edmx.diagram">
+      <DependentUpon>NadaTech.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CIRFID\x64\device_finder_api.dll" />
+    <Content Include="CIRFID\x64\uhf_reader_api.dll" />
+    <Content Include="CIRFID\x64\uhf_reader_device_api.dll" />
+    <Content Include="CIRFID\x86\device_finder_api.dll" />
+    <Content Include="CIRFID\x86\uhf_reader_api.dll" />
+    <Content Include="CIRFID\x86\uhf_reader_device_api.dll" />
+    <Content Include="Data\NadaTech.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NadaTech.Context.cs</LastGenOutput>
+      <DependentUpon>NadaTech.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\NadaTech.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NadaTech.edmx</DependentUpon>
+      <LastGenOutput>NadaTech.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\Help.png" />
+    <None Include="Resources\nada tech %281%29.png" />
+    <None Include="Resources\logoNew.png" />
+    <None Include="Resources\nada_tech__1_-removebg-preview.png" />
+    <None Include="Resources\Logo_1.png" />
+    <None Include="Resources\Logo_white .png" />
+    <None Include="Resources\0Asset 20.png" />
+    <None Include="Resources\0Asset 10.png" />
+    <None Include="Resources\04 %281%29.jpg" />
+    <None Include="Resources\Search %282%29.png" />
+    <None Include="Resources\Image-Upload %281%29.png" />
+    <None Include="Resources\Image-Upload.png" />
+    <None Include="Resources\Reports1.png" />
+    <None Include="Resources\Check In-Out1.png" />
+    <None Include="Resources\Configuration1.png" />
+    <None Include="Resources\Employee1.png" />
+    <None Include="Resources\Location1.png" />
+    <None Include="Resources\Part Master1.png" />
+    <None Include="Resources\Manage Asset1.png" />
+    <None Include="Resources\Creat Asset1.png" />
+    <None Include="Resources\Dashboard %281%29.png" />
+    <None Include="Resources\01.jpg" />
+    <None Include="Resources\03.png" />
+    <None Include="Resources\FileUpload.png" />
+    <None Include="Resources\Transaction.png" />
+    <None Include="Resources\Admin.png" />
+    <None Include="Resources\Manage Assets.png" />
+    <None Include="Resources\Userpro.png" />
+    <None Include="Resources\Reports.png" />
+    <None Include="Resources\Check In-Out.png" />
+    <None Include="Resources\Configuration.png" />
+    <None Include="Resources\Employee.png" />
+    <None Include="Resources\Location.png" />
+    <None Include="Resources\Part Master.png" />
+    <None Include="Resources\Creat Asset.png" />
+    <None Include="Resources\Manage Asset.png" />
+    <None Include="Resources\Create Asset.png" />
+    <None Include="Resources\icons8-maximize-window-301.png" />
+    <None Include="Resources\icons8-maximize-window-30.png" />
+    <None Include="Resources\icons8-google-web-search-30.png" />
+    <None Include="Resources\calendarWhite.png" />
+    <None Include="Resources\calendarDark.png" />
+    <None Include="Resources\question.png" />
+    <None Include="Resources\information.png" />
+    <None Include="Resources\exclamation.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\chat.png" />
+    <None Include="Resources\icons8-dashboard-25.png" />
+    <None Include="Resources\icons8-close-30 %281%29.png" />
+    <None Include="Resources\icons8-minimize-window-30.png" />
+    <None Include="Resources\icons8-close-45.png" />
+    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="usb\ahid\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
